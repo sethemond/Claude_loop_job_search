@@ -1,13 +1,13 @@
 {
-  "status": "idle",
-  "pid": 39392,
+  "status": "completed",
+  "pid": 74492,
   "started": "2026-05-21T14:54:12",
   "ended": "2026-05-21T15:09:41",
   "batches_run": 4,
   "dry_run": false,
   "schedule_id": null,
   "log": null,
-  "error": "loop process died unexpectedly",
-  "updated": "2026-05-25T01:10:43+00:00",
-  "active_sched_id": "1665145a-7a4c-4c2a-95de-87fd6147cfe2"
+  "error": null,
+  "updated": "2026-05-25T22:57:49+00:00",
+  "active_sched_id": "5596fb15-3560-4976-bc43-729b3434bcce"
 }

@@ -41,6 +41,8 @@ EXIT CODES
     2  invalid arguments
 """
 
+from __future__ import annotations
+
 import json
 import shutil
 import subprocess

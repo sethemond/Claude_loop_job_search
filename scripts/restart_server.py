@@ -29,18 +29,28 @@ def kill_existing():
 
 def start_server():
     serve = ROOT / "scripts" / "serve.py"
+    log_path = ROOT / "logs" / "server.log"
+    log_path.parent.mkdir(exist_ok=True)
+    log_file = open(log_path, "w", encoding="utf-8")
     if sys.platform == "win32":
         proc = subprocess.Popen(
             [sys.executable, str(serve), str(PORT)],
             cwd=str(ROOT),
+            stdout=log_file,
+            stderr=log_file,
+            stdin=subprocess.DEVNULL,
             creationflags=subprocess.DETACHED_PROCESS,
         )
     else:
         proc = subprocess.Popen(
             [sys.executable, str(serve), str(PORT)],
             cwd=str(ROOT),
+            stdout=log_file,
+            stderr=log_file,
+            stdin=subprocess.DEVNULL,
             start_new_session=True,
         )
+    log_file.close()  # safe: child has inherited the handle; parent can close its copy
     return proc.pid
 
 
@@ -65,5 +75,5 @@ if __name__ == "__main__":
     if wait_for_ready():
         print(f"Server ready -> http://localhost:{PORT}")
     else:
-        print("Warning: server did not respond within 10s — check logs")
+        print("Warning: server did not respond within 10s — check logs/server.log")
     sys.exit(0)

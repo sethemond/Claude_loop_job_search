@@ -1437,6 +1437,11 @@ if __name__ == "__main__":
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 8000
     print(f"Job Scout dashboard -> http://localhost:{port}")
     print("Ctrl+C to stop")
+    sys.stdout.flush()
+    import os as _os
+    _devnull = open(_os.devnull, "w", encoding="utf-8")
+    sys.stdout = _devnull
+    sys.stderr = _devnull
 
     # Single-batch auto-restart (unchanged)
     threading.Thread(

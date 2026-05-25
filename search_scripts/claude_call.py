@@ -21,6 +21,8 @@ Exit codes:
     2  Bad arguments (prompt or log_file empty / missing)
 """
 
+from __future__ import annotations
+
 import argparse
 import json
 import shutil

@@ -226,7 +226,32 @@ class ScheduleManager:
         )
 
     def start(self) -> None:
+        self._reconcile_orphans()
         self._tick_thread.start()
+
+    def _reconcile_orphans(self) -> None:
+        """Mark schedules stuck at 'running' from a prior server session as error."""
+        with self._lock:
+            data = _load_schedules()
+            changed = False
+            for e in data["schedules"]:
+                if e.get("status") == "running":
+                    e["status"] = "error"
+                    if not e.get("last_result"):
+                        e["last_result"] = {"success": 0, "limit_exceeded": 0}
+                    changed = True
+            if changed:
+                _save_schedules(data)
+        try:
+            if _LOOP_STATE_PATH.exists():
+                state = json.loads(_LOOP_STATE_PATH.read_text("utf-8"))
+                if state.get("status") == "running":
+                    state["status"] = "error"
+                    state["error"] = "orphaned from previous server session"
+                    state["updated"] = _iso(_utcnow())
+                    _LOOP_STATE_PATH.write_text(json.dumps(state, indent=2), "utf-8")
+        except Exception:
+            pass
 
     def shutdown(self) -> None:
         self._shutdown.set()
@@ -322,19 +347,31 @@ class ScheduleManager:
         _write_loop_state("running", sched_id=sched_id)
 
         # ── blocking call ──────────────────────────────────────────────────
-        result = run_loop(
-            primary_prompt                = settings.get("primary_prompt", ""),
-            primary_prompt_file           = settings.get("primary_prompt_file", "workflow.md"),
-            allowed_tools                 = settings.get("allowed_tools"),
-            nextLoop_prompt_static        = settings.get("nextLoop_prompt_static", ""),
-            nextLoop_prompt_dynamic       = remaining,
-            session_threshold             = settings.get("session_threshold", 80.0),
-            weekly_threshold              = settings.get("weekly_threshold", 80.0),
-            context_threshold             = settings.get("context_threshold", 90.0),
-            session_id                    = session_id,
-            allow_reschedule              = allow_reschedule,
-            continuing_from_limit_reached = continuing,
-        )
+        try:
+            result = run_loop(
+                primary_prompt                = settings.get("primary_prompt", ""),
+                primary_prompt_file           = settings.get("primary_prompt_file", "workflow.md"),
+                allowed_tools                 = settings.get("allowed_tools"),
+                nextLoop_prompt_static        = settings.get("nextLoop_prompt_static", ""),
+                nextLoop_prompt_dynamic       = remaining,
+                session_threshold             = settings.get("session_threshold", 80.0),
+                weekly_threshold              = settings.get("weekly_threshold", 80.0),
+                context_threshold             = settings.get("context_threshold", 90.0),
+                session_id                    = session_id,
+                allow_reschedule              = allow_reschedule,
+                continuing_from_limit_reached = continuing,
+            )
+        except Exception as exc:
+            with self._lock:
+                data = _load_schedules()
+                for e in data["schedules"]:
+                    if e["id"] == sched_id:
+                        e["status"] = "error"
+                        e["last_result"] = {"success": 0, "limit_exceeded": 0}
+                        break
+                _save_schedules(data)
+            _write_loop_state("error", sched_id=sched_id, error=f"run_loop raised: {exc}")
+            return
         # ──────────────────────────────────────────────────────────────────
 
         # If cancelled while running: discard results and remove entry

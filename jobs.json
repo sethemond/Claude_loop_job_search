@@ -1638,5 +1638,314 @@
       "summary": "CAD Designer at Babcock Power Inc. (Marlborough MA) producing drawings for combustion equipment (burners, fuel handling, piping, pulverizers) for industrial boilers. Primary CAD tools are Inventor, AutoCAD, and Creo — SolidWorks not mentioned. Role is drafting/design support: converting sketches to assemblies under Lead Designer direction. Technical drafting certificate preferred (associate's degree) — Seth is overqualified. Salary floor $59,750 is below threshold. Travel for field measurements required. Industrial combustion/power generation domain is outside Seth's target industries.",
       "search_id": null
     }
+    ,
+    {
+      "indeed_id": "JOB_284",
+      "fingerprint": "prescottmetal|eamautomationengineerleveliii|biddefordme",
+      "title": "EAM Automation Engineer-Level III",
+      "company": "Prescott Metal",
+      "location": "Biddeford, ME",
+      "salary": "Not listed",
+      "url": "https://to.indeed.com/aamg7sqydsfd",
+      "posted": "2026-02-27",
+      "first_seen": "2026-05-25",
+      "last_seen": "2026-05-25",
+      "tags": [
+        "solidworks", "mechanism-design", "robotics-automation",
+        "field-service", "sales-engineering", "loc-new-england", "ownership-selfdirected",
+        "skill-match-low", "knowledge-match-mid"
+      ],
+      "score": null,
+      "tier": null,
+      "matched_skills": [
+        "SolidWorks explicitly listed as accepted CAD tool alongside AutoCAD and Inventor",
+        "Mechanical design of automation systems — direct product design work",
+        "Automation/robotics domain — Seth's target industry",
+        "Lead teams from conception to completion — ownership culture"
+      ],
+      "red_flags": [
+        "'Expert level knowledge of automation mechanisms and methods' — significant depth gap for Seth",
+        "Experience with electrical control panels, pneumatic systems, automated control systems — industrial controls gap",
+        "Experience with machine vision and servo motors — specialized automation skills Seth lacks",
+        "Travel to customer sites as part of the sales effort — sales component in role",
+        "Mentoring junior engineers expected — suggests mid-level experience expectations"
+      ],
+      "highlights": [
+        "SolidWorks explicitly listed as accepted CAD tool",
+        "Automation/robotics domain aligns with Seth's interests",
+        "Design ownership — lead teams from conception to completion",
+        "Biddeford ME (Southern Maine, near Portland and Portsmouth NH)",
+        "$2,000 signing bonus offered"
+      ],
+      "summary": "Mechanical design role (posted as 'EAM Automation Engineer-Level III') at EAM via Prescott Metal in Biddeford ME. Actual work is creating mechanical CAD designs for custom automation and inspection systems. SolidWorks explicitly listed as an accepted CAD tool. Core skill gaps: expert-level industrial automation controls, electrical control panels, pneumatic systems, machine vision, and servo motors — significant gaps for Seth. Role also includes customer sales travel and occasional mentoring of junior engineers. $2,000 signing bonus offered.",
+      "search_id": null
+    }
+    ,
+    {
+      "indeed_id": "JOB_285",
+      "fingerprint": "abbott|manufacturingprocessengineerii|scarboroughme",
+      "title": "Manufacturing Process Engineer II",
+      "company": "Abbott",
+      "location": "Scarborough, ME",
+      "salary": "$61,300 - $122,700 a year",
+      "url": "https://to.indeed.com/aamh6xsvxjqy",
+      "posted": "2026-04-26",
+      "first_seen": "2026-05-25",
+      "last_seen": "2026-05-25",
+      "tags": [
+        "npi-manufacturing", "medical-devices", "cad-general",
+        "exp-2-3-years", "loc-new-england", "salary-above-90k",
+        "skill-match-low", "knowledge-match-mid"
+      ],
+      "score": null,
+      "tier": null,
+      "matched_skills": [
+        "Medical devices / diagnostics industry (Abbott Rapid Diagnostics) — target domain",
+        "DFM analysis mentioned as a role responsibility (peripheral)",
+        "BS Engineering degree qualifies; BSME explicitly accepted",
+        "Scarborough ME — Portland metro area (loc-new-england)"
+      ],
+      "red_flags": [
+        "Core work is manufacturing process engineering (validation, QMS, cGMP, CAPA) — not product design",
+        "3+ years manufacturing environment experience required",
+        "cGMP and ISO 13485 manufacturing compliance is the primary focus — outside Seth's background",
+        "No SolidWorks mentioned; CAD is a peripheral competency only",
+        "Statistical analysis software (Minitab/JMP) preferred — gap"
+      ],
+      "highlights": [
+        "Abbott — major medical device / diagnostics employer (global healthcare leader)",
+        "$61K–$122K salary range (ceiling is very strong)",
+        "Scarborough ME — Portland area (loc-new-england)",
+        "Medical devices / diagnostics domain (Abbott Rapid Diagnostics — infectious disease)",
+        "Strong benefits: free medical PPO, 401k match, tuition reimbursement, student debt program"
+      ],
+      "summary": "Manufacturing Process Engineer II at Abbott Rapid Diagnostics (Scarborough ME), supporting infectious disease diagnostics manufacturing. Core work is process validation, QMS compliance, DFM analysis, and CAPA investigations for medical diagnostic devices — manufacturing process focus, not product design engineering. Medical devices is a target domain for Seth but the role type is manufacturing process. 3+ years manufacturing experience required. Abbott offers strong employer benefits and career development infrastructure.",
+      "search_id": null
+    }
+    ,
+    {
+      "indeed_id": "JOB_286",
+      "fingerprint": "kmahumanresourcesconsulting|fireprotectionengineer|portlandme",
+      "title": "Fire Protection Engineer",
+      "company": "KMA Human Resources Consulting",
+      "location": "Portland, ME",
+      "salary": "Not listed",
+      "url": "https://to.indeed.com/aasm6zw29zjp",
+      "posted": "2026-03-12",
+      "first_seen": "2026-05-25",
+      "last_seen": "2026-05-25",
+      "tags": [
+        "hvac-mep", "eit-preferred", "cad-notsolidworks",
+        "loc-new-england", "loc-remote",
+        "skill-match-low", "knowledge-match-low"
+      ],
+      "score": null,
+      "tier": null,
+      "matched_skills": [
+        "FE exam completion listed as a requirement — Seth qualifies",
+        "Portland ME — desired location",
+        "Hybrid/remote eligibility for New England candidates"
+      ],
+      "red_flags": [
+        "Fire protection / life safety system design is building MEP — explicit avoid category",
+        "AutoSprink, HydraCAD, AutoCAD, Revit are the tools — SolidWorks entirely irrelevant",
+        "Life safety codes (NFPA), sprinkler system design, hydraulic calculations — specialized building systems discipline",
+        "Actual employer is Colby Co. Engineering, a multi-disciplinary MEP/civil/structural firm",
+        "No salary posted"
+      ],
+      "highlights": [
+        "FE exam required — Seth qualifies and this is a genuine differentiator",
+        "Portland ME — desired location",
+        "Hybrid/remote flexibility for New England residents"
+      ],
+      "summary": "Fire Protection Engineer at Colby Co. Engineering (placed by KMA HR Consulting) in Portland ME. Hybrid/remote eligible for New England candidates. FE exam completion is a listed requirement — Seth qualifies. Core work is fire protection and life safety system design (sprinkler systems, NFPA life safety codes, hydraulic calculations) — explicit avoid category for Seth. Tools are AutoSprink, HydraCAD, AutoCAD, and Revit; SolidWorks is not applicable. No salary posted.",
+      "search_id": null
+    }
+    ,
+    {
+      "indeed_id": "JOB_287",
+      "fingerprint": "enercontechnologies|manufacturingprocessengineerprintedcircuitboardassemblies|grayme",
+      "title": "Manufacturing Process Engineer – Printed Circuit Board Assemblies",
+      "company": "Enercon Technologies",
+      "location": "Gray, ME",
+      "first_seen": "2026-05-25",
+      "last_seen": "2026-05-25",
+      "eliminated_by": "exp_requirement"
+    }
+    ,
+    {
+      "indeed_id": "JOB_288",
+      "fingerprint": "abbott|seniorautomationengineer|scarboroughme",
+      "title": "Senior Automation Engineer",
+      "company": "Abbott",
+      "location": "Scarborough, ME",
+      "first_seen": "2026-05-25",
+      "last_seen": "2026-05-25",
+      "eliminated_by": "title_filter"
+    }
+    ,
+    {
+      "indeed_id": "JOB_289",
+      "fingerprint": "miltoncat|marineprojectmanager|scarboroughme",
+      "title": "Marine Project Manager",
+      "company": "Milton Cat",
+      "location": "Scarborough, ME",
+      "first_seen": "2026-05-25",
+      "last_seen": "2026-05-25",
+      "eliminated_by": "title_filter"
+    }
+    ,
+    {
+      "indeed_id": "JOB_290",
+      "fingerprint": "prescottmetal|eamautomationengineerleveliii|biddefordme",
+      "title": "EAM Automation Engineer-Level III",
+      "company": "Prescott Metal",
+      "location": "Biddeford, ME",
+      "salary": "Not listed",
+      "url": "https://to.indeed.com/aa8xzcc2fdvp",
+      "posted": "2026-02-27",
+      "first_seen": "2026-05-25",
+      "last_seen": "2026-05-25",
+      "tags": [
+        "solidworks", "mechanism-design", "robotics-automation",
+        "field-service", "sales-engineering", "ownership-selfdirected",
+        "loc-new-england",
+        "skill-match-low", "knowledge-match-mid"
+      ],
+      "score": null,
+      "tier": null,
+      "matched_skills": [
+        "SolidWorks listed as accepted CAD tool alongside AutoCAD and Inventor",
+        "Mechanism design — 'expert level knowledge of automation mechanisms and methods' is core to role",
+        "Design ownership — lead automation project teams from conception to completion"
+      ],
+      "red_flags": [
+        "Expert automation controls required — electrical control panels, pneumatic systems, machine vision, servo motors are core skills Seth lacks",
+        "Sales travel component explicitly built into role duties",
+        "Mentor expectations suggest mid-level experience expectations",
+        "No salary listed",
+        "Near-duplicate of JOB_284 (same job, different Indeed ID from prior search session)"
+      ],
+      "highlights": [
+        "Biddeford, ME — Southern Maine coastal location",
+        "$2,000 signing bonus",
+        "SolidWorks explicitly listed as accepted CAD tool",
+        "Robotics/automation domain — Seth's target industry",
+        "Design ownership from conception to completion"
+      ],
+      "summary": "Mechanical design engineer role (posted as 'EAM Automation Engineer-Level III') at EAM via Prescott Metal in Biddeford ME, creating CAD designs for custom automation and inspection systems. SolidWorks listed as accepted CAD tool; robotics/automation is a target industry and design ownership is emphasized. Core skill gaps: expert-level industrial automation controls (electrical panels, pneumatics, machine vision, servo motors) are mandatory requirements well beyond Seth's current capability. Role includes customer sales travel as an explicit duty. Near-duplicate of JOB_284 (same job, different Indeed ID from prior search session)."
+    }
+    ,
+    {
+      "indeed_id": "JOB_291",
+      "fingerprint": "abbott|manufacturingprocessengineerii|scarboroughme",
+      "title": "Manufacturing Process Engineer II",
+      "company": "Abbott",
+      "location": "Scarborough, ME",
+      "salary": "$61,300 - $122,700 a year",
+      "url": "https://to.indeed.com/aazqk6rz9ttp",
+      "posted": "2026-04-26",
+      "first_seen": "2026-05-25",
+      "last_seen": "2026-05-25",
+      "tags": [
+        "npi-manufacturing", "medical-devices", "cad-general", "dfm",
+        "exp-3-5-years", "loc-new-england", "salary-above-90k",
+        "skill-match-low", "knowledge-match-mid"
+      ],
+      "score": null,
+      "tier": null,
+      "matched_skills": [
+        "Medical devices / diagnostics (Abbott Rapid Diagnostics — infectious disease) — target domain",
+        "DFM principles explicitly mentioned in role responsibilities",
+        "BS Engineering degree qualifies; BSME explicitly accepted",
+        "Scarborough ME — Portland metro area (loc-new-england)"
+      ],
+      "red_flags": [
+        "Core work is manufacturing process engineering (validation, QMS, cGMP, CAPA) — not product design",
+        "3+ years manufacturing environment experience required",
+        "cGMP and ISO 13485 compliance is primary focus — outside Seth's background",
+        "No SolidWorks mentioned; CAD is a peripheral competency only",
+        "Statistical analysis software (Minitab/JMP) preferred — gap",
+        "Near-duplicate of JOB_285 (same job, different Indeed ID from prior search session)"
+      ],
+      "highlights": [
+        "Abbott — major medical device/diagnostics employer (global healthcare leader)",
+        "$61K–$122K salary range (ceiling very strong)",
+        "Scarborough ME — Portland area (loc-new-england)",
+        "Strong benefits: free medical PPO, 401k match, tuition reimbursement, student debt program"
+      ],
+      "summary": "Manufacturing Process Engineer II at Abbott Rapid Diagnostics (Scarborough ME), supporting infectious disease diagnostics manufacturing. Core work is process validation, QMS compliance, DFM analysis, and CAPA investigations for medical diagnostic devices — manufacturing process focus, not product design engineering. Medical devices is a target domain for Seth but the role type is manufacturing process. 3+ years manufacturing experience required. Abbott offers strong employer benefits and career development infrastructure. Near-duplicate of JOB_285 (same job, different Indeed ID from prior search session)."
+    }
+    ,
+    {
+      "indeed_id": "JOB_292",
+      "fingerprint": "kmahumanresourcesconsulting|fireprotectionengineer|portlandme",
+      "title": "Fire Protection Engineer",
+      "company": "KMA Human Resources Consulting",
+      "location": "Portland, ME",
+      "salary": "Not listed",
+      "url": "https://to.indeed.com/aa4g7tmj8zc9",
+      "posted": "2026-03-12",
+      "first_seen": "2026-05-25",
+      "last_seen": "2026-05-25",
+      "tags": [
+        "hvac-mep", "eit-preferred", "cad-notsolidworks",
+        "loc-new-england", "loc-remote",
+        "skill-match-low", "knowledge-match-low"
+      ],
+      "score": null,
+      "tier": null,
+      "matched_skills": [
+        "FE exam completion required — Seth qualifies",
+        "Portland ME — desired location",
+        "Hybrid/remote flexibility for New England residents"
+      ],
+      "red_flags": [
+        "Fire protection / life safety system design is building MEP — explicit avoid category",
+        "AutoSprink, HydraCAD, AutoCAD, Revit are the tools — SolidWorks entirely irrelevant",
+        "NFPA life safety codes, sprinkler system design, hydraulic calculations — specialized building systems discipline",
+        "No salary posted",
+        "Near-duplicate of JOB_286 (same job, different Indeed ID from prior search session)"
+      ],
+      "highlights": [
+        "FE exam required — Seth qualifies and this is a genuine differentiator",
+        "Portland ME — desired location",
+        "Hybrid/remote flexibility for New England residents"
+      ],
+      "summary": "Fire Protection Engineer at Colby Co. Engineering (placed by KMA HR Consulting) in Portland ME. Hybrid/remote eligible for New England candidates. FE exam completion is a listed requirement — Seth qualifies. Core work is fire protection and life safety system design (sprinkler systems, NFPA codes, hydraulic calculations) — explicit avoid category for Seth. Tools are AutoSprink, HydraCAD, AutoCAD, and Revit; SolidWorks not applicable. No salary posted. Near-duplicate of JOB_286 (same job, different Indeed ID from prior search session)."
+    }
+    ,
+    {
+      "indeed_id": "JOB_293",
+      "fingerprint": "enercontinc|manufacturingprocessengineerprintedcircuitboardassemblies|grayme",
+      "title": "Manufacturing Process Engineer – Printed Circuit Board Assemblies",
+      "company": "Enercon Technologies",
+      "location": "Gray, ME",
+      "first_seen": "2026-05-25",
+      "last_seen": "2026-05-25",
+      "eliminated_by": "exp_requirement"
+    }
+    ,
+    {
+      "indeed_id": "JOB_294",
+      "fingerprint": "miltoncat|marineprojectmanager2|scarboroughme",
+      "title": "Marine Project Manager",
+      "company": "Milton Cat",
+      "location": "Scarborough, ME",
+      "first_seen": "2026-05-25",
+      "last_seen": "2026-05-25",
+      "eliminated_by": "title_filter"
+    }
+    ,
+    {
+      "indeed_id": "JOB_295",
+      "fingerprint": "abbott|seniorautomationengineer2|scarboroughme",
+      "title": "Senior Automation Engineer",
+      "company": "Abbott",
+      "location": "Scarborough, ME",
+      "first_seen": "2026-05-25",
+      "last_seen": "2026-05-25",
+      "eliminated_by": "title_filter"
+    }
   ]
 }
