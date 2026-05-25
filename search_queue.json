@@ -1,6 +1,6 @@
 {
   "settings": {
-    "batch_size": 7,
+    "batch_size": 1,
     "rerun_after_days": 14
   },
   "queue": [
