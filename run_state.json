@@ -1,0 +1,11 @@
+{
+  "status": "error",
+  "started": "2026-05-21T15:09:30",
+  "ended": "2026-05-21T15:09:41",
+  "pid": null,
+  "attempt": 1,
+  "log": "test_claude_call.log",
+  "returncode": 1,
+  "error": "exited with code 1",
+  "managed_by_loop": false
+}

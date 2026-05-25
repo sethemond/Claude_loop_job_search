@@ -1,0 +1,277 @@
+{
+  "schedules": [
+    {
+      "id": "91e2630d-b2c6-45a7-a6c5-aac2e237bb6a",
+      "status": "completed",
+      "created": "2026-05-24T16:45:52+00:00",
+      "hour_utc": 0,
+      "minute_utc": 0,
+      "repeat": 0,
+      "repeat_pattern": "daily",
+      "weekday": 0,
+      "runs_remaining": 0,
+      "next_run": "2026-05-24T16:45:52+00:00",
+      "last_run": "2026-05-24T16:45:52+00:00",
+      "session_id": "4e4787ff-b77b-4d56-b81b-75ac569a3d1c",
+      "remaining_loop_prompts": [],
+      "continuing_from_limit_reached": false,
+      "allow_reschedule": false,
+      "settings": {
+        "primary_prompt": "Hello",
+        "nextLoop_prompt_static": "Continue the job search workflow.",
+        "nextLoop_prompt_dynamic": [
+          "keyword: mechanical design engineer, location: Boston, MA"
+        ],
+        "session_threshold": 50,
+        "weekly_threshold": 80,
+        "context_threshold": 90
+      },
+      "last_result": {
+        "success": 1,
+        "limit_exceeded": 0
+      }
+    },
+    {
+      "id": "ee583d73-e3a8-4471-844b-cef79e355aea",
+      "status": "completed",
+      "created": "2026-05-24T17:12:56+00:00",
+      "hour_utc": 0,
+      "minute_utc": 0,
+      "repeat": 0,
+      "repeat_pattern": "daily",
+      "weekday": 0,
+      "runs_remaining": 0,
+      "next_run": "2026-05-24T17:12:56+00:00",
+      "last_run": "2026-05-24T17:12:56+00:00",
+      "session_id": "4e4787ff-b77b-4d56-b81b-75ac569a3d1c",
+      "remaining_loop_prompts": [
+        "keyword: mechanical design engineer, location: Boston, MA"
+      ],
+      "continuing_from_limit_reached": false,
+      "allow_reschedule": false,
+      "settings": {
+        "primary_prompt": "just say hello, ignore following text",
+        "primary_prompt_file": "test_primary_prompts.md",
+        "nextLoop_prompt_static": "Continue the job search workflow.",
+        "nextLoop_prompt_dynamic": [
+          "keyword: mechanical design engineer, location: Boston, MA"
+        ],
+        "session_threshold": 80,
+        "weekly_threshold": 60,
+        "context_threshold": 90
+      },
+      "last_result": {
+        "success": 1,
+        "limit_exceeded": 2
+      }
+    },
+    {
+      "id": "2f3c7233-6024-466c-a4bf-b09d2b6d4af6",
+      "status": "completed",
+      "created": "2026-05-24T23:35:35+00:00",
+      "hour_utc": 0,
+      "minute_utc": 0,
+      "repeat": 0,
+      "repeat_pattern": "daily",
+      "weekday": 0,
+      "runs_remaining": 0,
+      "next_run": "2026-05-24T23:35:35+00:00",
+      "last_run": "2026-05-24T23:35:35+00:00",
+      "session_id": "4e4787ff-b77b-4d56-b81b-75ac569a3d1c",
+      "remaining_loop_prompts": [
+        "keyword: mechanical design engineer, location: Boston, MA"
+      ],
+      "continuing_from_limit_reached": false,
+      "allow_reschedule": false,
+      "is_immediate": true,
+      "settings": {
+        "primary_prompt": "just say hello, ignore following text",
+        "primary_prompt_file": "test_primary_prompts.md",
+        "allowed_tools": null,
+        "nextLoop_prompt_static": "Continue the job search workflow.",
+        "nextLoop_prompt_dynamic": [
+          "keyword: mechanical design engineer, location: Boston, MA"
+        ],
+        "session_threshold": 80,
+        "weekly_threshold": 60,
+        "context_threshold": 90
+      },
+      "last_result": {
+        "success": 1,
+        "limit_exceeded": 2
+      }
+    },
+    {
+      "id": "bbcc916d-a572-407f-921f-b7c3c064ab88",
+      "status": "completed",
+      "created": "2026-05-24T23:36:00+00:00",
+      "hour_utc": 0,
+      "minute_utc": 0,
+      "repeat": 0,
+      "repeat_pattern": "daily",
+      "weekday": 0,
+      "runs_remaining": 0,
+      "next_run": "2026-05-24T23:36:00+00:00",
+      "last_run": "2026-05-24T23:36:00+00:00",
+      "session_id": "a7989a14-dd1c-430e-aad4-553cb0238b0e",
+      "remaining_loop_prompts": [],
+      "continuing_from_limit_reached": false,
+      "allow_reschedule": false,
+      "is_immediate": true,
+      "settings": {
+        "primary_prompt": "just say hello, ignore following text",
+        "primary_prompt_file": "test_primary_prompts.md",
+        "allowed_tools": null,
+        "nextLoop_prompt_static": "Continue the job search workflow.",
+        "nextLoop_prompt_dynamic": [
+          "keyword: mechanical design engineer, location: Boston, MA"
+        ],
+        "session_threshold": 80,
+        "weekly_threshold": 80,
+        "context_threshold": 90
+      },
+      "last_result": {
+        "success": 1,
+        "limit_exceeded": 0
+      }
+    },
+    {
+      "id": "5dfdb40e-b3c6-420a-8f43-a1b556a9e383",
+      "status": "completed",
+      "created": "2026-05-25T00:42:47+00:00",
+      "hour_utc": 6,
+      "minute_utc": 0,
+      "repeat": 0,
+      "repeat_pattern": "daily",
+      "weekday": 0,
+      "runs_remaining": 0,
+      "next_run": "2026-05-25T00:42:47+00:00",
+      "last_run": "2026-05-25T00:42:47+00:00",
+      "session_id": "a7989a14-dd1c-430e-aad4-553cb0238b0e",
+      "remaining_loop_prompts": [
+        "keyword: mechanical design engineer, location: Cambridge, MA"
+      ],
+      "continuing_from_limit_reached": false,
+      "allow_reschedule": false,
+      "is_immediate": true,
+      "settings": {
+        "primary_prompt": "just say hello, ignore following text",
+        "primary_prompt_file": "test_primary_prompts.md",
+        "allowed_tools": null,
+        "nextLoop_prompt_static": "Continue the job search workflow.",
+        "nextLoop_prompt_dynamic": [
+          "keyword: mechanical design engineer, location: Cambridge, MA"
+        ],
+        "session_threshold": 80,
+        "weekly_threshold": 80,
+        "context_threshold": 90
+      },
+      "last_result": {
+        "success": 1,
+        "limit_exceeded": 2
+      }
+    },
+    {
+      "id": "8f643306-c406-4c04-ad2d-1dbba7f03aed",
+      "status": "completed",
+      "created": "2026-05-25T00:43:28+00:00",
+      "hour_utc": 6,
+      "minute_utc": 0,
+      "repeat": 0,
+      "repeat_pattern": "daily",
+      "weekday": 0,
+      "runs_remaining": 0,
+      "next_run": "2026-05-25T00:43:28+00:00",
+      "last_run": "2026-05-25T00:43:28+00:00",
+      "session_id": "bccb55b4-5d9e-495f-9773-9d13ca498523",
+      "remaining_loop_prompts": [],
+      "continuing_from_limit_reached": false,
+      "allow_reschedule": false,
+      "is_immediate": true,
+      "settings": {
+        "primary_prompt": "just say hello, ignore following text",
+        "primary_prompt_file": "test_primary_prompts.md",
+        "allowed_tools": null,
+        "nextLoop_prompt_static": "Continue the job search workflow.",
+        "nextLoop_prompt_dynamic": [
+          "keyword: mechanical design engineer, location: Cambridge, MA"
+        ],
+        "session_threshold": 80,
+        "weekly_threshold": 90,
+        "context_threshold": 90
+      },
+      "last_result": {
+        "success": 1,
+        "limit_exceeded": 0
+      }
+    },
+    {
+      "id": "f4abc162-5b4a-4e4a-bc1a-f2881fa07c4c",
+      "status": "completed",
+      "created": "2026-05-25T00:44:23+00:00",
+      "hour_utc": 0,
+      "minute_utc": 45,
+      "repeat": 0,
+      "repeat_pattern": "daily",
+      "weekday": 0,
+      "runs_remaining": 0,
+      "next_run": "2026-05-25T00:45:00+00:00",
+      "last_run": "2026-05-25T00:45:00+00:00",
+      "session_id": "22f7a9f5-eb22-4a82-8a79-7e81b0cef384",
+      "remaining_loop_prompts": [],
+      "continuing_from_limit_reached": false,
+      "allow_reschedule": false,
+      "is_immediate": false,
+      "settings": {
+        "primary_prompt": "just say hello, ignore following text",
+        "primary_prompt_file": "test_primary_prompts.md",
+        "allowed_tools": null,
+        "nextLoop_prompt_static": "Continue the job search workflow.",
+        "nextLoop_prompt_dynamic": [
+          "keyword: mechanical design engineer, location: Cambridge, MA"
+        ],
+        "session_threshold": 80,
+        "weekly_threshold": 90,
+        "context_threshold": 90
+      },
+      "last_result": {
+        "success": 1,
+        "limit_exceeded": 0
+      }
+    },
+    {
+      "id": "0e368457-5dae-455b-9e6a-4df23d42a30d",
+      "status": "completed",
+      "created": "2026-05-25T00:51:37+00:00",
+      "hour_utc": 0,
+      "minute_utc": 52,
+      "repeat": 0,
+      "repeat_pattern": "daily",
+      "weekday": 0,
+      "runs_remaining": 0,
+      "next_run": "2026-05-25T00:52:00+00:00",
+      "last_run": "2026-05-25T00:52:00+00:00",
+      "session_id": "4111e109-bee5-40f1-a21c-37ba528ca754",
+      "remaining_loop_prompts": [],
+      "continuing_from_limit_reached": false,
+      "allow_reschedule": false,
+      "is_immediate": false,
+      "settings": {
+        "primary_prompt": "just say hello, ignore following text",
+        "primary_prompt_file": "test_primary_prompts.md",
+        "allowed_tools": null,
+        "nextLoop_prompt_static": "Continue the job search workflow.",
+        "nextLoop_prompt_dynamic": [
+          "keyword: mechanical design engineer, location: Cambridge, MA"
+        ],
+        "session_threshold": 80,
+        "weekly_threshold": 90,
+        "context_threshold": 90
+      },
+      "last_result": {
+        "success": 1,
+        "limit_exceeded": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,820 @@
+{
+  "version": 2,
+  "base_score": 50,
+  "note": "Score = base_score + sum of tag weights. No clamping — raw values used. Tiers assigned by percentile rank across the active job pool (top 25% = tier_1, 25-75% = tier_2, bottom 25% = tier_3). Tags with status=pending are included in scoring immediately.",
+  "categories": {
+    "skills": {
+      "label": "Skills Match",
+      "color": "#22c55e"
+    },
+    "experience": {
+      "label": "Experience Level",
+      "color": "#f59e0b"
+    },
+    "industry": {
+      "label": "Industry",
+      "color": "#a78bfa"
+    },
+    "location": {
+      "label": "Location",
+      "color": "#3b82f6"
+    },
+    "salary": {
+      "label": "Salary",
+      "color": "#22c55e"
+    },
+    "culture": {
+      "label": "Culture / Fit",
+      "color": "#06b6d4"
+    },
+    "avoid": {
+      "label": "Avoid / Penalty",
+      "color": "#ef4444"
+    },
+    "fit": {
+      "label": "Skill & Knowledge Fit",
+      "color": "#e879f9"
+    }
+  },
+  "tags": {
+    "solidworks": {
+      "id": "solidworks",
+      "label": "SolidWorks",
+      "category": "skills",
+      "weight": 8,
+      "status": "approved",
+      "description": "Job explicitly requires or strongly prefers SolidWorks CAD",
+      "aliases": [
+        "solidworks-cad",
+        "sw",
+        "solid-works",
+        "cswp"
+      ]
+    },
+    "fdm-3dprint": {
+      "id": "fdm-3dprint",
+      "label": "FDM / 3D Printing",
+      "category": "skills",
+      "weight": 6,
+      "status": "approved",
+      "description": "Job mentions 3D printing, additive prototyping, or FDM",
+      "aliases": [
+        "3d-printing",
+        "additive-prototyping",
+        "fdm",
+        "3d-print"
+      ]
+    },
+    "fea": {
+      "id": "fea",
+      "label": "FEA / Simulation",
+      "category": "skills",
+      "weight": 4,
+      "status": "approved",
+      "description": "Finite element analysis or simulation tools mentioned",
+      "aliases": [
+        "finite-element",
+        "ansys",
+        "simulation",
+        "cfd"
+      ]
+    },
+    "gdt": {
+      "id": "gdt",
+      "label": "GD&T",
+      "category": "skills",
+      "weight": 3,
+      "status": "approved",
+      "description": "Geometric Dimensioning and Tolerancing",
+      "aliases": [
+        "geometric-dimensioning",
+        "tolerancing",
+        "gd-t"
+      ]
+    },
+    "python": {
+      "id": "python",
+      "label": "Python / Programming",
+      "category": "skills",
+      "weight": 3,
+      "status": "approved",
+      "description": "Python, scripting, or programming skills mentioned as relevant",
+      "aliases": [
+        "scripting",
+        "coding",
+        "programming",
+        "matlab",
+        "vba"
+      ]
+    },
+    "cad-general": {
+      "id": "cad-general",
+      "label": "CAD (general)",
+      "category": "skills",
+      "weight": 4,
+      "status": "approved",
+      "description": "CAD skills required but specific software not SolidWorks (or unspecified)",
+      "aliases": [
+        "cad",
+        "autocad",
+        "3d-modeling",
+        "3d-cad"
+      ]
+    },
+    "cad-notsolidworks": {
+      "id": "cad-notsolidworks",
+      "label": "CAD (Inventor/CATIA, not SW)",
+      "category": "skills",
+      "weight": 0,
+      "status": "approved",
+      "description": "Job prefers Inventor, CATIA, or other non-SolidWorks tool — skill gap",
+      "aliases": [
+        "inventor-preferred",
+        "catia-preferred",
+        "creo-preferred"
+      ]
+    },
+    "mechanism-design": {
+      "id": "mechanism-design",
+      "label": "Mechanism Design",
+      "category": "skills",
+      "weight": 5,
+      "status": "approved",
+      "description": "Cams, linkages, pulleys, actuators, motion systems",
+      "aliases": [
+        "mechanisms",
+        "linkage-design",
+        "motion-design",
+        "cam-design"
+      ]
+    },
+    "injection-molding": {
+      "id": "injection-molding",
+      "label": "Injection Molding",
+      "category": "skills",
+      "weight": 4,
+      "status": "approved",
+      "description": "Injection molded plastic component design",
+      "aliases": [
+        "plastic-design",
+        "molded-plastics",
+        "im-design"
+      ]
+    },
+    "sheet-metal": {
+      "id": "sheet-metal",
+      "label": "Sheet Metal",
+      "category": "skills",
+      "weight": 3,
+      "status": "approved",
+      "description": "Sheet metal fabrication or design",
+      "aliases": [
+        "sheetmetal",
+        "sheet-metal-design",
+        "metal-fab"
+      ]
+    },
+    "dfm": {
+      "id": "dfm",
+      "label": "DFM / DFA",
+      "category": "skills",
+      "weight": 4,
+      "status": "approved",
+      "description": "Design for manufacturing or assembly",
+      "aliases": [
+        "design-for-manufacturing",
+        "design-for-assembly",
+        "dfa"
+      ]
+    },
+    "prototyping-handson": {
+      "id": "prototyping-handson",
+      "label": "Hands-on Prototyping",
+      "category": "skills",
+      "weight": 6,
+      "status": "approved",
+      "description": "Role emphasizes hands-on build, test, iterate culture",
+      "aliases": [
+        "hands-on",
+        "prototype-build",
+        "build-test",
+        "lab-work"
+      ]
+    },
+    "eit-preferred": {
+      "id": "eit-preferred",
+      "label": "EIT / FE Exam Preferred",
+      "category": "skills",
+      "weight": -2,
+      "status": "approved",
+      "description": "Job lists EIT certification or FE exam as preferred or required",
+      "aliases": [
+        "fe-exam",
+        "engineer-in-training",
+        "eit-required",
+        "fe-preferred"
+      ]
+    },
+    "portfolio-valued": {
+      "id": "portfolio-valued",
+      "label": "Portfolio Valued",
+      "category": "skills",
+      "weight": 3,
+      "status": "approved",
+      "description": "Job explicitly mentions portfolio of work as a plus",
+      "aliases": [
+        "portfolio",
+        "project-portfolio",
+        "work-samples"
+      ]
+    },
+    "entry-level": {
+      "id": "entry-level",
+      "label": "Entry-Level Title",
+      "category": "experience",
+      "weight": 8,
+      "status": "approved",
+      "description": "Title or description explicitly says entry-level, junior, or new-grad",
+      "aliases": [
+        "junior",
+        "new-grad",
+        "associate",
+        "entry level",
+        "graduate-engineer"
+      ]
+    },
+    "exp-0-2-years": {
+      "id": "exp-0-2-years",
+      "label": "0–2 Years Required",
+      "category": "experience",
+      "weight": 5,
+      "status": "approved",
+      "description": "Job requires 0 to 2 years of experience",
+      "aliases": [
+        "1-year-exp",
+        "2-year-exp",
+        "0-years-exp"
+      ]
+    },
+    "exp-2-3-years": {
+      "id": "exp-2-3-years",
+      "label": "2–3 Years Required",
+      "category": "experience",
+      "weight": 3,
+      "status": "approved",
+      "description": "Job requires 2 to 3 years of experience",
+      "aliases": [
+        "2-years-exp",
+        "3-year-exp"
+      ]
+    },
+    "exp-3-5-years": {
+      "id": "exp-3-5-years",
+      "label": "3–5 Years Required",
+      "category": "experience",
+      "weight": -15,
+      "status": "approved",
+      "description": "Job requires 3 to 5 years — approaching hard filter",
+      "aliases": [
+        "3-years-exp",
+        "4-year-exp",
+        "3-5-years"
+      ]
+    },
+    "exp-4-plus-years": {
+      "id": "exp-4-plus-years",
+      "label": "4+ Years Required",
+      "category": "experience",
+      "weight": -55,
+      "status": "approved",
+      "description": "Job requires 4 or more years — hard filter territory",
+      "aliases": [
+        "4-plus-years",
+        "5-year-exp",
+        "minimum-4-years"
+      ]
+    },
+    "exp-5-plus-years": {
+      "id": "exp-5-plus-years",
+      "label": "5+ Years Required",
+      "category": "experience",
+      "weight": -60,
+      "status": "approved",
+      "description": "Job requires 5 or more years — hard filter",
+      "aliases": [
+        "5-plus-years",
+        "minimum-5-years",
+        "senior-experience"
+      ]
+    },
+    "pe-required": {
+      "id": "pe-required",
+      "label": "PE License Required",
+      "category": "experience",
+      "weight": -55,
+      "status": "approved",
+      "description": "Professional Engineering license required — Seth has FE/EIT, not PE",
+      "aliases": [
+        "professional-engineer",
+        "pe-license",
+        "registered-engineer"
+      ]
+    },
+    "medical-devices": {
+      "id": "medical-devices",
+      "label": "Medical Devices",
+      "category": "industry",
+      "weight": 7,
+      "status": "approved",
+      "description": "Medical device design, surgical tools, biomedical engineering",
+      "aliases": [
+        "medical-device",
+        "biomedical",
+        "surgical-tools",
+        "orthopedic",
+        "implants",
+        "medtech"
+      ]
+    },
+    "robotics-automation": {
+      "id": "robotics-automation",
+      "label": "Robotics / Automation",
+      "category": "industry",
+      "weight": 7,
+      "status": "approved",
+      "description": "Robotics, industrial automation, or automated systems",
+      "aliases": [
+        "robotics",
+        "automation",
+        "industrial-automation",
+        "robot-design"
+      ]
+    },
+    "additive-manufacturing": {
+      "id": "additive-manufacturing",
+      "label": "Additive Manufacturing",
+      "category": "industry",
+      "weight": 6,
+      "status": "approved",
+      "description": "Company focused on additive manufacturing technology or products",
+      "aliases": [
+        "3d-printing-company",
+        "additive-mfg",
+        "metal-3dprint"
+      ]
+    },
+    "marine": {
+      "id": "marine",
+      "label": "Marine / Nautical",
+      "category": "industry",
+      "weight": 8,
+      "status": "approved",
+      "description": "Marine, nautical, boating, or subsea industry",
+      "aliases": [
+        "nautical",
+        "boating",
+        "subsea",
+        "maritime",
+        "naval",
+        "offshore"
+      ]
+    },
+    "consumer-products": {
+      "id": "consumer-products",
+      "label": "Consumer Products",
+      "category": "industry",
+      "weight": 6,
+      "status": "approved",
+      "description": "Consumer product design or manufacturing",
+      "aliases": [
+        "consumer-goods",
+        "product-design-company",
+        "cpg"
+      ]
+    },
+    "aerospace-defense": {
+      "id": "aerospace-defense",
+      "label": "Aerospace / Defense",
+      "category": "industry",
+      "weight": 6,
+      "status": "approved",
+      "description": "Aerospace, defense, or military hardware",
+      "aliases": [
+        "aerospace",
+        "defense",
+        "military-hardware",
+        "dod",
+        "government-contractor"
+      ]
+    },
+    "sports-tech": {
+      "id": "sports-tech",
+      "label": "Sports / Recreation Tech",
+      "category": "industry",
+      "weight": 4,
+      "status": "approved",
+      "description": "Sports equipment, recreation technology, or fitness products",
+      "aliases": [
+        "sports-equipment",
+        "recreation",
+        "athletic-gear",
+        "golf-tech"
+      ]
+    },
+    "food-packaging": {
+      "id": "food-packaging",
+      "label": "Food / Packaging",
+      "category": "industry",
+      "weight": 0,
+      "status": "approved",
+      "description": "Food industry or packaging machinery — lower interest",
+      "aliases": [
+        "food-industry",
+        "packaging-machinery",
+        "food-processing"
+      ]
+    },
+    "heavy-equipment": {
+      "id": "heavy-equipment",
+      "label": "Heavy Equipment / Construction",
+      "category": "industry",
+      "weight": 0,
+      "status": "approved",
+      "description": "Heavy construction equipment, Caterpillar, mining — not a target sector",
+      "aliases": [
+        "construction-equipment",
+        "caterpillar",
+        "mining-equipment"
+      ]
+    },
+    "hvac-mep": {
+      "id": "hvac-mep",
+      "label": "HVAC / MEP Focus",
+      "category": "avoid",
+      "weight": -25,
+      "status": "approved",
+      "description": "Primary work is HVAC, MEP, or building mechanical/plumbing/electrical systems",
+      "aliases": [
+        "hvac",
+        "mep",
+        "building-systems",
+        "building-mechanical",
+        "ashrae",
+        "bas",
+        "building-automation"
+      ]
+    },
+    "applications-engineering": {
+      "id": "applications-engineering",
+      "label": "Applications Engineering",
+      "category": "avoid",
+      "weight": -15,
+      "status": "approved",
+      "description": "Role is primarily applications or applications support, not design",
+      "aliases": [
+        "applications-engineer",
+        "app-eng",
+        "technical-applications"
+      ]
+    },
+    "sales-engineering": {
+      "id": "sales-engineering",
+      "label": "Sales Engineering",
+      "category": "avoid",
+      "weight": -15,
+      "status": "approved",
+      "description": "Role has significant sales or pre-sales responsibility",
+      "aliases": [
+        "sales-engineer",
+        "technical-sales",
+        "pre-sales"
+      ]
+    },
+    "field-service": {
+      "id": "field-service",
+      "label": "Field Service",
+      "category": "avoid",
+      "weight": -15,
+      "status": "approved",
+      "description": "Role requires significant field service, travel, or on-site support",
+      "aliases": [
+        "field-engineer",
+        "field-technician",
+        "on-site-service",
+        "service-engineer"
+      ]
+    },
+    "loc-charleston": {
+      "id": "loc-charleston",
+      "label": "Charleston SC Area",
+      "category": "location",
+      "weight": 12,
+      "status": "approved",
+      "description": "Charleston, North Charleston, Summerville, Mount Pleasant, Moncks Corner SC",
+      "aliases": [
+        "charleston-sc",
+        "north-charleston",
+        "summerville-sc",
+        "mount-pleasant-sc",
+        "hanahan-sc",
+        "ladson-sc",
+        "goose-creek-sc"
+      ]
+    },
+    "loc-coastal-fl": {
+      "id": "loc-coastal-fl",
+      "label": "Coastal Florida",
+      "category": "location",
+      "weight": 10,
+      "status": "approved",
+      "description": "Tampa, St. Petersburg, Jacksonville, Miami, Fort Lauderdale, Sarasota, Melbourne, West Palm Beach FL",
+      "aliases": [
+        "tampa-fl",
+        "st-pete-fl",
+        "jacksonville-fl",
+        "miami-fl",
+        "fort-lauderdale-fl",
+        "sarasota-fl",
+        "clearwater-fl",
+        "oldsmar-fl"
+      ]
+    },
+    "loc-new-england": {
+      "id": "loc-new-england",
+      "label": "Boston / New England Coast",
+      "category": "location",
+      "weight": 7,
+      "status": "approved",
+      "description": "Boston, Cambridge MA, Portsmouth NH, Portland ME, Providence RI",
+      "aliases": [
+        "boston-ma",
+        "cambridge-ma",
+        "portsmouth-nh",
+        "portland-me",
+        "providence-ri"
+      ]
+    },
+    "loc-pacific-nw-midatl": {
+      "id": "loc-pacific-nw-midatl",
+      "label": "Pacific NW / Mid-Atlantic",
+      "category": "location",
+      "weight": 4,
+      "status": "approved",
+      "description": "Seattle WA, Portland OR, Virginia Beach VA, Baltimore MD, Philadelphia PA",
+      "aliases": [
+        "seattle-wa",
+        "portland-or",
+        "virginia-beach-va",
+        "baltimore-md",
+        "philadelphia-pa"
+      ]
+    },
+    "loc-ca-tx-gulf": {
+      "id": "loc-ca-tx-gulf",
+      "label": "CA Coastal / TX Gulf",
+      "category": "location",
+      "weight": 0,
+      "status": "approved",
+      "description": "San Diego, LA, San Francisco CA, Houston TX, Corpus Christi TX",
+      "aliases": [
+        "san-diego-ca",
+        "los-angeles-ca",
+        "san-francisco-ca",
+        "houston-tx",
+        "corpus-christi-tx"
+      ]
+    },
+    "loc-remote": {
+      "id": "loc-remote",
+      "label": "Remote",
+      "category": "location",
+      "weight": 4,
+      "status": "approved",
+      "description": "Full or partial remote work offered",
+      "aliases": [
+        "remote-work",
+        "work-from-home",
+        "hybrid-remote",
+        "fully-remote"
+      ]
+    },
+    "salary-above-90k": {
+      "id": "salary-above-90k",
+      "label": "Salary > $90K",
+      "category": "salary",
+      "weight": 6,
+      "status": "approved",
+      "description": "Posted salary range reaches above $90,000",
+      "aliases": [
+        "high-salary",
+        "above-90k",
+        "over-90k"
+      ]
+    },
+    "salary-75-90k": {
+      "id": "salary-75-90k",
+      "label": "Salary $75K–$90K",
+      "category": "salary",
+      "weight": 3,
+      "status": "approved",
+      "description": "Salary range is roughly $75K–$90K",
+      "aliases": [
+        "mid-salary",
+        "75-90k"
+      ]
+    },
+    "salary-65-75k": {
+      "id": "salary-65-75k",
+      "label": "Salary $65K–$75K",
+      "category": "salary",
+      "weight": 0,
+      "status": "approved",
+      "description": "Salary range is roughly $65K–$75K — meets minimum threshold",
+      "aliases": [
+        "low-mid-salary",
+        "65-75k"
+      ]
+    },
+    "salary-below-65k": {
+      "id": "salary-below-65k",
+      "label": "Salary < $65K",
+      "category": "salary",
+      "weight": -55,
+      "status": "approved",
+      "description": "Salary below minimum threshold of $65,000",
+      "aliases": [
+        "low-salary",
+        "below-65k",
+        "under-65k"
+      ]
+    },
+    "ownership-selfdirected": {
+      "id": "ownership-selfdirected",
+      "label": "Design Ownership / Self-Directed",
+      "category": "culture",
+      "weight": 5,
+      "status": "approved",
+      "description": "Role emphasizes ownership, self-direction, startup mentality — matches Seth's strengths",
+      "aliases": [
+        "design-ownership",
+        "self-directed",
+        "startup-culture",
+        "ownership",
+        "autonomy"
+      ]
+    },
+    "relocation-offered": {
+      "id": "relocation-offered",
+      "label": "Relocation Assistance",
+      "category": "culture",
+      "weight": 2,
+      "status": "approved",
+      "description": "Job explicitly offers relocation assistance",
+      "aliases": [
+        "relocation",
+        "relocation-package",
+        "moving-assistance"
+      ]
+    },
+    "security-clearance": {
+      "id": "security-clearance",
+      "label": "Active Security Clearance Required",
+      "category": "culture",
+      "weight": -40,
+      "status": "approved",
+      "description": "Job requires an existing/active US security clearance - Seth does not currently hold one",
+      "aliases": [
+        "active-clearance",
+        "active-secret-clearance",
+        "ts-sci",
+        "clearance-required",
+        "dod-clearance",
+        "ts-clearance",
+        "secret-clearance",
+        "top-secret"
+      ]
+    },
+    "skill-match-high": {
+      "id": "skill-match-high",
+      "label": "Strong Skill Match",
+      "category": "fit",
+      "weight": 15,
+      "status": "approved",
+      "description": "Job's core required skills strongly align with Seth's strengths: SolidWorks + at least one of FDM/3D printing, mechanism design, Python, or hands-on prototyping",
+      "aliases": [
+        "skills-match-high",
+        "strong-skill-fit",
+        "technical-match-high"
+      ]
+    },
+    "skill-match-mid": {
+      "id": "skill-match-mid",
+      "label": "Moderate Skill Match",
+      "category": "fit",
+      "weight": 6,
+      "status": "approved",
+      "description": "Moderate skill overlap: job requires SolidWorks or one of Seth's strong skills, but also has notable requirements Seth is less prepared for",
+      "aliases": [
+        "skills-match-mid",
+        "partial-skill-fit",
+        "technical-match-mid"
+      ]
+    },
+    "skill-match-low": {
+      "id": "skill-match-low",
+      "label": "Weak Skill Match",
+      "category": "fit",
+      "weight": -8,
+      "status": "approved",
+      "description": "Job's core skill requirements are primarily things Seth hasn't mastered (e.g., CATIA primary, heavy ANSYS/FEA, PLC/controls, electrical engineering focus)",
+      "aliases": [
+        "skills-match-low",
+        "weak-skill-fit",
+        "technical-match-low"
+      ]
+    },
+    "knowledge-match-high": {
+      "id": "knowledge-match-high",
+      "label": "Strong Domain Match",
+      "category": "fit",
+      "weight": 10,
+      "status": "approved",
+      "description": "Domain closely matches Seth's target industries: medical devices, robotics/automation, additive manufacturing, marine, consumer products",
+      "aliases": [
+        "domain-match-high",
+        "industry-match-high",
+        "knowledge-fit-high"
+      ]
+    },
+    "knowledge-match-mid": {
+      "id": "knowledge-match-mid",
+      "label": "Moderate Domain Match",
+      "category": "fit",
+      "weight": 4,
+      "status": "approved",
+      "description": "Partial domain match: adjacent to Seth's targets (aerospace/defense, sports tech, industrial) or role context is partially familiar",
+      "aliases": [
+        "domain-match-mid",
+        "industry-match-mid",
+        "knowledge-fit-mid"
+      ]
+    },
+    "knowledge-match-low": {
+      "id": "knowledge-match-low",
+      "label": "Weak Domain Match",
+      "category": "fit",
+      "weight": -6,
+      "status": "approved",
+      "description": "Domain largely outside Seth's background: HVAC/MEP, heavy construction, oil & gas, semiconductor fab, or other industries with no relevant exposure",
+      "aliases": [
+        "domain-match-low",
+        "industry-match-low",
+        "knowledge-fit-low"
+      ]
+    },
+    "security-clearance-sponsorship": {
+      "id": "security-clearance-sponsorship",
+      "label": "Clearance Sponsorship",
+      "category": "culture",
+      "weight": 0,
+      "status": "approved",
+      "description": "Company will sponsor obtaining a US security clearance; candidate only needs to be eligible (US citizen, no disqualifying history)",
+      "aliases": [
+        "clearance-eligible",
+        "eligible-for-clearance",
+        "able-to-obtain-clearance",
+        "sponsoring-clearance",
+        "clearance-obtainable",
+        "will-sponsor-clearance"
+      ]
+    },
+    "npi-manufacturing": {
+      "id": "npi-manufacturing",
+      "label": "NPI / Manufacturing Engineering",
+      "category": "avoid",
+      "weight": -8,
+      "status": "approved",
+      "description": "Role is primarily new product introduction or manufacturing process engineering, not product design",
+      "aliases": [
+        "npi",
+        "manufacturing-engineer",
+        "process-engineer",
+        "production-engineer"
+      ]
+    },
+    "drafting-technician": {
+      "id": "drafting-technician",
+      "label": "Drafting / Technician Role",
+      "category": "avoid",
+      "weight": -12,
+      "status": "approved",
+      "description": "Role is primarily a CAD drafting or technician support position, not engineering design; typically requires associate degree and involves executing drawings under engineer supervision",
+      "aliases": [
+        "cad-drafter",
+        "cad-technician",
+        "draftsman",
+        "technical-drafter"
+      ]
+    }
+  }
+}

@@ -1,0 +1,27 @@
+# Personal data — never commit
+profile.md
+Job App Info/
+docs/
+
+# Runtime state (machine-specific, changes every run but kept for format reference)
+# jobs.json
+# tags.json
+# status.json
+# run_state.json
+# loop_state.json
+# runs.json
+# search_queue.json
+# smart_apply_config.json
+# usage_limits.json
+# test_session.json
+
+# Logs
+logs/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# VS Code
+.vscode/

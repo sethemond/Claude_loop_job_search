@@ -1,0 +1,213 @@
+<div class="run-content">
+
+    <!-- Automatic Runs -->
+    <div class="auto-runs-card" id="auto-runs-card">
+      <div class="auto-runs-hdr">
+        <span style="font-size:12px;font-weight:700;color:var(--text)">Automatic Runs</span>
+        <span id="loop-pill" class="loop-pill" style="display:none"></span>
+        <div style="margin-left:auto;display:flex;gap:6px;align-items:center">
+          <button class="btn-abort" id="btn-stop-loop" onclick="stopLoop()" style="display:none">⏹ Stop Loop</button>
+        </div>
+      </div>
+      <div class="auto-runs-body">
+        <!-- Live status bar -->
+        <div id="loop-status-bar" class="loop-status-bar" style="display:none"></div>
+
+        <!-- ── PRIMARY PROMPT ── -->
+        <div style="margin-bottom:14px">
+          <div class="ar-section-lbl">Primary Prompt</div>
+          <select id="primary-prompt-file" onchange="primaryPromptChanged()"
+            style="background:var(--surface);border:1px solid var(--border);color:var(--text);
+                   border-radius:5px;padding:4px 9px;font-size:12px;width:100%">
+            <option value="" disabled selected>Loading…</option>
+          </select>
+          <div style="font-size:10px;color:var(--muted);margin-top:4px">Markdown file used as the primary workflow prompt for Claude</div>
+        </div>
+
+        <!-- ── QUEUE SELECTION ── -->
+        <div style="margin-bottom:14px">
+          <div class="ar-section-lbl">Queue Selection</div>
+          <div style="display:flex;gap:8px;margin-bottom:10px;align-items:center">
+            <button class="qs-mode-btn active" id="qs-btn-auto"    onclick="setQsMode('auto')">Auto</button>
+            <button class="qs-mode-btn"        id="qs-btn-manual"  onclick="setQsMode('manual')">Manual</button>
+            <button class="qs-mode-btn"        id="qs-btn-reorder" onclick="setQsMode('reorder')">Reorder</button>
+            <span id="qs-count-label" style="font-size:11px;color:var(--muted);margin-left:6px"></span>
+          </div>
+
+          <!-- Auto mode -->
+          <div id="qs-auto-panel">
+            <div class="qs-auto-row">
+              <span style="font-size:12px;color:var(--muted)">Run next</span>
+              <button class="stepper-btn" onclick="qsAdjustN(-1)">−</button>
+              <strong id="qs-n-val" style="color:var(--text);min-width:24px;text-align:center">5</strong>
+              <button class="stepper-btn" onclick="qsAdjustN(1)">+</button>
+              <span style="font-size:12px;color:var(--muted)">entries from queue</span>
+            </div>
+            <div id="qs-auto-stats" style="font-size:11px;color:var(--muted);margin:4px 0 6px"></div>
+            <div id="qs-auto-preview" class="qs-selection-list"></div>
+          </div>
+
+          <!-- Manual mode -->
+          <div id="qs-manual-panel" style="display:none">
+            <div style="display:flex;gap:6px;margin-bottom:6px;align-items:center">
+              <input type="text" id="qs-manual-filter" placeholder="Filter by keyword or location…"
+                oninput="renderQsManual()"
+                style="background:var(--surface2);border:1px solid var(--border);color:var(--text);
+                       border-radius:5px;padding:4px 9px;font-size:12px;flex:1">
+              <button class="filter-btn" style="font-size:11px;padding:3px 9px" onclick="qsSelectAll()">All</button>
+              <button class="filter-btn" style="font-size:11px;padding:3px 9px" onclick="qsSelectNone()">None</button>
+            </div>
+            <div class="qs-manual-list" id="qs-manual-list"></div>
+            <div id="qs-manual-summary" class="qs-selection-summary"></div>
+          </div>
+
+          <!-- Reorder mode -->
+          <div id="qs-reorder-panel" style="display:none">
+            <div class="queue-mgr-toolbar">
+              <input class="queue-mgr-search" id="qs-reorder-filter" type="text"
+                placeholder="Filter by location or keyword…" oninput="renderQsReorder()">
+              <span style="font-size:11px;color:var(--muted);margin-left:4px" id="qs-reorder-counts"></span>
+            </div>
+            <div id="qs-reorder-summary" style="font-size:11px;color:var(--muted);margin-bottom:6px"></div>
+            <div id="qs-reorder-list"></div>
+          </div>
+        </div>
+
+        <!-- ── WHEN TO RUN ── -->
+        <div style="margin-bottom:14px">
+          <div class="ar-section-lbl">When to Run</div>
+          <div class="sched-when-radio">
+            <label><input type="radio" name="sched-when" value="now" checked onchange="schedWhenChanged()"> Run Now</label>
+            <label><input type="radio" name="sched-when" value="scheduled" onchange="schedWhenChanged()"> Scheduled</label>
+          </div>
+          <div id="sched-time-panel" style="display:none">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap">
+              <span id="sched-tz-label" style="font-size:12px;color:var(--muted);min-width:60px">Time</span>
+              <div class="sched-time-group">
+                <input class="sched-time-input" type="number" id="sched-hour-new" min="0" max="23" placeholder="14">
+                <span style="color:var(--muted);font-size:14px">:</span>
+                <input class="sched-time-input" type="number" id="sched-minute-new" min="0" max="59" placeholder="00" value="0">
+              </div>
+              <span id="sched-tz-badge"
+                title="Double-click to change timezone"
+                ondblclick="openTzPicker()"
+                style="font-size:11px;color:var(--muted);cursor:pointer;text-decoration:underline dotted;user-select:none"></span>
+              <div style="position:relative;display:inline-block">
+                <select id="sched-tz-picker" onchange="applyTzPicker()"
+                  style="display:none;position:absolute;top:0;left:0;z-index:100;
+                         font-size:11px;background:var(--surface);border:1px solid var(--border);
+                         color:var(--text);border-radius:4px;padding:2px 4px">
+                  <option value="America/New_York">Eastern (ET)</option>
+                  <option value="America/Chicago">Central (CT)</option>
+                  <option value="America/Denver">Mountain (MT)</option>
+                  <option value="America/Los_Angeles">Pacific (PT)</option>
+                  <option value="America/Anchorage">Alaska (AKT)</option>
+                  <option value="Pacific/Honolulu">Hawaii (HT)</option>
+                  <option value="Europe/London">London (GMT/BST)</option>
+                  <option value="Europe/Paris">Paris (CET)</option>
+                  <option value="Europe/Berlin">Berlin (CET)</option>
+                  <option value="Asia/Tokyo">Tokyo (JST)</option>
+                  <option value="Australia/Sydney">Sydney (AEST)</option>
+                  <option value="UTC">UTC</option>
+                </select>
+              </div>
+            </div>
+            <div style="font-size:11px;color:var(--muted);margin-bottom:6px">Repeat pattern:</div>
+            <div class="sched-pattern-row">
+              <button class="sched-pattern-btn active" data-pattern="daily"    onclick="setSchedPattern('daily')">Daily</button>
+              <button class="sched-pattern-btn"        data-pattern="weekdays" onclick="setSchedPattern('weekdays')">Weekdays</button>
+              <button class="sched-pattern-btn"        data-pattern="weekends" onclick="setSchedPattern('weekends')">Weekends</button>
+              <button class="sched-pattern-btn"        data-pattern="weekly"   onclick="setSchedPattern('weekly')">Weekly on</button>
+              <select class="sched-weekday-sel" id="sched-weekday-sel" style="display:none">
+                <option value="0">Monday</option><option value="1">Tuesday</option>
+                <option value="2">Wednesday</option><option value="3">Thursday</option>
+                <option value="4">Friday</option><option value="5">Saturday</option>
+                <option value="6">Sunday</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── LIMITS & SETTINGS ── -->
+        <div class="limits-section">
+          <div class="limits-hdr" onclick="toggleLimits()">
+            <span style="flex:1">⚙ Limits &amp; Settings</span>
+            <span id="limits-chevron">▶</span>
+          </div>
+          <div class="limits-body" id="limits-body">
+            <div class="limits-grid">
+              <div class="limit-row">
+                <span class="limit-lbl">Session limit</span>
+                <input class="limit-inp" type="number" id="lim-session" value="80" min="0" max="100" step="1">
+                <span class="limit-hint">%</span>
+              </div>
+              <div class="limit-row">
+                <span class="limit-lbl">Weekly limit</span>
+                <input class="limit-inp" type="number" id="lim-weekly" value="60" min="0" max="100" step="1">
+                <span class="limit-hint">%</span>
+              </div>
+              <div class="limit-row">
+                <span class="limit-lbl">Context reset</span>
+                <input class="limit-inp" type="number" id="lim-context" value="90" min="0" max="100" step="1">
+                <span class="limit-hint">%</span>
+              </div>
+              <div class="limit-row">
+                <label style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);cursor:pointer">
+                  <input type="checkbox" id="lim-auto-reschedule" onchange="limAutoRescheduleChanged()" style="accent-color:var(--blue)">
+                  Auto-reschedule on limit
+                </label>
+              </div>
+              <div class="limit-row" id="lim-repeat-row" style="grid-column:1/-1;display:none">
+                <span class="limit-lbl">Max reschedule attempts</span>
+                <input class="limit-inp" type="number" id="lim-repeat" value="0" min="-1" step="1">
+                <span class="limit-hint" style="min-width:130px">0 = no retry · −1 = unlimited</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── ACTION BUTTONS ── -->
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:18px">
+          <button class="btn-run" id="btn-loop-now" onclick="doRunNow()">&#9654; Run Now</button>
+          <button class="btn-approve" id="btn-schedule-it" onclick="doScheduleIt()" style="display:none">&#128197; Schedule It</button>
+        </div>
+
+        <!-- ── SCHEDULED LOOPS LIST ── -->
+        <div class="sched-section-hdr">Scheduled Loops</div>
+        <div id="sched-list">
+          <div style="font-size:12px;color:var(--muted);padding:4px 0">No scheduled loops. Add one above.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Runs -->
+    <div class="runs-hist-card" id="runs-hist-card">
+      <div class="runs-hist-hdr" onclick="toggleRunsHist()">
+        <span style="font-size:12px;font-weight:700;color:var(--text)">Recent Runs</span>
+        <span id="runs-hist-summary" style="font-size:12px;color:var(--muted);margin-left:6px"></span>
+        <span id="runs-hist-chevron" style="margin-left:auto;color:var(--muted);font-size:12px">▼</span>
+      </div>
+      <div id="runs-hist-body" class="runs-hist-body open">
+        <div style="display:flex;gap:6px;align-items:center;padding:6px 0 8px;border-bottom:1px solid var(--border);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--muted)">
+          <span style="min-width:44px">Status</span>
+          <span style="flex:1">Search</span>
+          <span style="min-width:54px;text-align:right">+Jobs</span>
+          <span style="min-width:46px;text-align:center">Session</span>
+          <span style="min-width:110px;text-align:right">Cost (sess · weekly)</span>
+          <span style="min-width:42px;text-align:right">Time</span>
+        </div>
+        <div id="runs-hist-list" style="max-height:165px;overflow-y:auto">
+          <div style="font-size:12px;color:var(--muted);padding:8px 0">No completed runs yet.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loop Log -->
+    <div class="run-log-outer">
+      <div class="run-log-hdr">
+        <span style="font-size:12px;color:var(--muted);font-weight:600">Loop Log</span>
+        <span class="run-log-filename" id="run-log-filename"></span>
+      </div>
+      <pre class="run-log-pre" id="run-log-pre">No log available.</pre>
+    </div>
+  </div>
