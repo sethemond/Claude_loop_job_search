@@ -260,13 +260,15 @@ python -m pytest search_scripts/tests/test_schedule_manager.py
 
 8. **Auto-reschedule after rate limits hasn't been tested end-to-end.** The logic is implemented — if a session limit is hit mid-run, the scheduler saves the remaining entries and reschedules for the next session reset. In practice I have a 5-hour session limit and want Claude available during the day, so only one full session per day goes to job search anyway.
 
+9. **Schedule feature does not have option to dynamically schedule next in queue of x amount**. Instead schedule is for fixed queries.
+
 ### Things to Explore
 
-9. **Could we use the Indeed API directly instead of MCP?** The MCP round-trip goes through Claude's context window. A direct API call from Python would be cheaper — Claude only sees results, not the overhead.
+1. **Could we use the Indeed API directly instead of MCP?** The MCP round-trip goes through Claude's context window. A direct API call from Python would be cheaper — Claude only sees results, not the overhead.
 
-10. **Local keyword pre-filtering.** A small local model (4B or 8B, via Ollama) as a pass-gate before sending anything to Claude could cut token costs significantly. Cheap local inference screens obvious mismatches; Claude only sees the plausible candidates.
+2. **Local keyword pre-filtering.** A small local model (4B or 8B, via Ollama) as a pass-gate before sending anything to Claude could cut token costs significantly. Cheap local inference screens obvious mismatches; Claude only sees the plausible candidates.
 
-11. **Node-RED or similar for the loop/schedule layer.** The scheduling and looping logic in `schedule_manager.py` and `loop_manager.py` is fairly generic — call this thing, check the result, wait, repeat. A visual flow tool would make that logic easier to modify and reuse for other LLM automation tasks beyond job search.
+3. **Node-RED or similar for the loop/schedule layer.** The scheduling and looping logic in `schedule_manager.py` and `loop_manager.py` is fairly generic — call this thing, check the result, wait, repeat. A visual flow tool would make that logic easier to modify and reuse for other LLM automation tasks beyond job search.
 
 ---
 
