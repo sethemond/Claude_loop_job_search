@@ -262,6 +262,14 @@ python -m pytest search_scripts/tests/test_schedule_manager.py
 
 9. **Schedule feature does not have option to dynamically schedule next in queue of x amount**. Instead schedule is for fixed queries.
 
+10. **Schedule on repeat does not function as anticipated** all scheduled options result in a scheduled once and not one a daily/weekly basis.
+
+11. **Weekly cost limit** does not reset or track correctly. This causes limit weekly threshold to trigger even when weekly threshold resets. i.e. weekly usage is being measured by scripts as nearly 100% when according to claude.ai it is 0%.
+
+12. **Schedule card does not show primary prompt used** this causes issues about known how things are setup with schedules. i.e. selected the wrong prompt and didn't know it.
+
+13. **primary prompt dropdown should have user selectable default option.** This way the user can save the default primary prompt they would like to use by default and have that file selected by default. This should be a persisitent saved setting option (still located in run tab though).
+
 ### Things to Explore
 
 1. **Could we use the Indeed API directly instead of MCP?** The MCP round-trip goes through Claude's context window. A direct API call from Python would be cheaper — Claude only sees results, not the overhead.
