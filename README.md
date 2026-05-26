@@ -270,6 +270,8 @@ python -m pytest search_scripts/tests/test_schedule_manager.py
 
 13. **primary prompt dropdown should have user selectable default option.** This way the user can save the default primary prompt they would like to use by default and have that file selected by default. This should be a persisitent saved setting option (still located in run tab though).
 
+14. **Indeed MCP tool status goes offline - system silently fails with no auto reconnect attempt**. This was observed where loop 2 failed completely and silently because indeed MCP was unreachable. NOte that loop 1 worked fine and loop 3 worked fine. There was temporary and very short glitch in connecting to the Indeed server. This should should be handled. Suggested fix: use Json parser to search for keywords "Indeed MCP tools are currently disconnected" (fuzzy search?) as well as if there are no jobs added to determine lenght of claude log (if shorter than 5 lines). If both of these hit, attempt to resume session ID automatically. If not then, log issue in loop log and indicate verbose error on recent runs and present to user. and move on to next search.
+
 ### Things to Explore
 
 1. **Could we use the Indeed API directly instead of MCP?** The MCP round-trip goes through Claude's context window. A direct API call from Python would be cheaper — Claude only sees results, not the overhead.
